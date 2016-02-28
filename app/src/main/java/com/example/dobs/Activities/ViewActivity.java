@@ -11,6 +11,9 @@ import com.example.dobs.R;
 
 import java.util.List;
 
+/**
+ * Created by dade on 15/02/16.
+ */
 public class ViewActivity extends ListActivity {
     List<BehaviorRecord> allBehaviors;
     Context context = this;

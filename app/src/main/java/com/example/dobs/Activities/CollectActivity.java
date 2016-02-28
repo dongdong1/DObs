@@ -9,6 +9,9 @@ import android.widget.TimePicker;
 
 import com.example.dobs.R;
 
+/**
+ * Created by dade on 15/02/16.
+ */
 public class CollectActivity extends AppCompatActivity {
     public final static String tagBehavior = "timeBehavior";
     public final static String tagEvent = "timeEvent";

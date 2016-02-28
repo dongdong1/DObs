@@ -8,6 +8,9 @@ import com.example.dobs.Classes.BehaviorRecord;
 import com.example.dobs.Fragments.SelectBehavior;
 import com.example.dobs.R;
 
+/**
+ * Created by dade on 15/02/16.
+ */
 public class BehaviorActivity extends AppCompatActivity {
     private static final String TAG = "BehaviorActivity";
     public static BehaviorRecord behaviorRecord;
