@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.example.dobs.Activities.CollectActivity;
 import com.example.dobs.Activities.MainActivity;
 import com.example.dobs.Activities.ProfileActivity;
-import com.example.dobs.Activities.ViewActivity;
+import com.example.dobs.Activities.ViewBehaviors;
 import com.example.dobs.Classes.DatabaseHelper;
 import com.example.dobs.R;
 
@@ -55,7 +55,7 @@ public class MainFragment extends Fragment {
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), ViewActivity.class));
+                startActivity(new Intent(getActivity(), ViewBehaviors.class));
             }
         });
 

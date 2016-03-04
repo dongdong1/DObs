@@ -31,7 +31,7 @@
             android:name=".Activities.EventActivity"
             android:label="Create an event"
             android:theme="@style/Theme.AppCompat" />
-        <activity android:name=".Activities.ViewActivity"></activity>
+        <activity android:name=".Activities.ViewBehaviors"></activity>
     </application>
 
 </manifest>

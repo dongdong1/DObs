@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by dade on 15/02/16.
  */
-public class ViewActivity extends ListActivity {
+public class ViewBehaviors extends ListActivity {
     List<BehaviorRecord> allBehaviors;
     Context context = this;
 
