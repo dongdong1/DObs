@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.dobs.R;
+import com.example.dobs.Tasks.InitializeOAuthTask;
 
 public class ViewActivity extends AppCompatActivity {
     private AppCompatActivity context;
@@ -29,7 +30,7 @@ public class ViewActivity extends AppCompatActivity {
         btnSleep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context, SleepActivity.class));
+                new InitializeOAuthTask(context).execute();
             }
         });
     }
