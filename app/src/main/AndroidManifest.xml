@@ -32,7 +32,21 @@
             android:label="Create an event"
             android:theme="@style/Theme.AppCompat" />
         <activity android:name=".Activities.ViewBehaviors" />
-        <activity android:name=".Activities.ViewActivity"></activity>
+        <activity android:name=".Activities.ViewActivity" />
+        <activity
+            android:name=".Activities.SleepActivity"
+            android:label="Data fetched">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="logincallback"
+                    android:scheme="fitbittester" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
