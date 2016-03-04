@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     public static String patientFilename = "patient.dat";
     public static DatabaseHelper db = null;
     public static String AccessToken;
+    public static String datePicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
