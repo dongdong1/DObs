@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.example.dobs.Activities.BehaviorActivity;
 import com.example.dobs.Activities.CollectActivity;
 import com.example.dobs.Activities.MainActivity;
-import com.example.dobs.Adapters.BehaviorChoose;
+import com.example.dobs.Adapters.BehaviorSelect;
 import com.example.dobs.Classes.Patient;
 import com.example.dobs.R;
 
@@ -33,7 +33,7 @@ public class SelectBehavior extends ListFragment {
         setHasOptionsMenu(true);
         MainActivity.patient = readPatient();
         getActivity().setTitle("ID # " + MainActivity.patient.ID);
-        BehaviorChoose adp = new BehaviorChoose(getActivity(), R.layout.activity_choose_row, MainActivity.patient.trackingBehaviors);
+        BehaviorSelect adp = new BehaviorSelect(getActivity(), R.layout.activity_choose_row, MainActivity.patient.trackingBehaviors);
         setListAdapter(adp);
         getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
     }
