@@ -13,12 +13,6 @@
         android:id="@+id/authSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Auth Success!!!!!!!!" />
-
-    <Button
-        android:id="@+id/authOkay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/authSuccess" />
+        android:text="@string/oauthSuccess" />
 
 </RelativeLayout>

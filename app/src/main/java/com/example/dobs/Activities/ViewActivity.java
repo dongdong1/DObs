@@ -36,6 +36,7 @@ public class ViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MainActivity.datePicked = getPickedDateString();
+                startActivity(new Intent(context, SleepActivity.class));
             }
         });
     }

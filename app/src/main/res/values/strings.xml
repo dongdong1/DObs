@@ -18,5 +18,6 @@
     <string name="labelEvent">Event Description:</string>
     <string name="PRN">PRN Medicine</string>
     <string name="Aggressive">Aggressive Incident</string>
+    <string name="oauthSuccess">Authentication success! \n\nPress okay to continue.</string>
 
 </resources>
