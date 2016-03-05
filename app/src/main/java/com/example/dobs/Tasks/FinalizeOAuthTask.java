@@ -41,10 +41,10 @@ public class FinalizeOAuthTask extends AsyncTask<Void, Void, Void> {
             FinalizeOAuth.FinalizeOAuthResultSet finalizeOAuthResults = finalizeOAuthChoreo.execute(finalizeOAuthInputs);
             Log.i(this.getClass().toString(), "finalizeOAuthResults created");
             //-----------------------------------------------------------------------------------------------------------------------
-            MainActivity.AccessToken = finalizeOAuthResults.get_AccessToken();
-            Log.i(this.getClass().toString(), "Token created: " + MainActivity.AccessToken);
-            String RefreshToken = finalizeOAuthResults.get_RefreshToken();
-            Log.i(this.getClass().toString(), "RefreshToken created: " + RefreshToken);
+            MainActivity.patient.accessToken = finalizeOAuthResults.get_AccessToken();
+            Log.i(this.getClass().toString(), "Token created: " + MainActivity.patient.accessToken);
+            MainActivity.patient.refreshToken = finalizeOAuthResults.get_RefreshToken();
+            Log.i(this.getClass().toString(), "RefreshToken created: " + MainActivity.patient.refreshToken);
             //-----------------------------------------------------------------------------------------------------------------------
         } catch (Exception e) {
             // if an exception occurred, log it

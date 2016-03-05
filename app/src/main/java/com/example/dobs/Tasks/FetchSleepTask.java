@@ -52,7 +52,7 @@ public class FetchSleepTask extends AsyncTask<Void, Void, String> {
             GetSleep.GetSleepInputSet getSleepInputs = getSleepChoreo.newInputSet();
             Log.i(this.getClass().toString(), "getSleepInputs created");
             // Set inputs
-            getSleepInputs.set_AccessToken(MainActivity.AccessToken);
+            getSleepInputs.set_AccessToken(MainActivity.patient.accessToken);
             getSleepInputs.set_Date(MainActivity.datePicked);
             Log.i(this.getClass().toString(), "getSleepInputs set ready");
             // Execute Choreo

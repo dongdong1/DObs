@@ -35,9 +35,8 @@
             android:theme="@style/Theme.AppCompat" />
         <activity android:name=".Activities.ViewBehaviors" />
         <activity android:name=".Activities.ViewActivity" />
-        <activity
-            android:name=".Activities.SleepActivity"
-            android:label="Data fetched">
+        <activity android:name=".Activities.SleepActivity" />
+        <activity android:name=".Activities.OAuthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
