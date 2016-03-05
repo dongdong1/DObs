@@ -16,14 +16,14 @@ import java.util.List;
 /**
  * Created by dade on 15/02/16.
  */
-public class BehaviorChoose extends ArrayAdapter<Behavior> {
-    private static final String TAG = "BehaviorChooseAdapter";
+public class BehaviorSelect extends ArrayAdapter<Behavior> {
+    private static final String TAG = "BehaviorSelectAdapter";
 
     Context context;
     int layoutResourceId;
     List<Behavior> data = null;
 
-    public BehaviorChoose(Context context, int layoutResourceId, List<Behavior> data) {
+    public BehaviorSelect(Context context, int layoutResourceId, List<Behavior> data) {
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
