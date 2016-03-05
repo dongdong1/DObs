@@ -21,9 +21,4 @@ public class SleepActivity extends AppCompatActivity {
         // may raise bugs in case FinalizeOAuthTask is not completed
         new FetchSleepTask(log, chart).execute();
     }
-
-    protected void onDestroy() {
-        Log.e(this.getClass().toString(), "TestActivity onDestroy");
-        super.onDestroy();
-    }
 }

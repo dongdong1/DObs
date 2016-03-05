@@ -14,6 +14,8 @@ import com.example.dobs.Activities.MainActivity;
 import com.example.dobs.Classes.Patient;
 import com.example.dobs.R;
 
+import java.util.Random;
+
 /**
  * Created by dade on 15/02/16.
  */
@@ -33,9 +35,15 @@ public class CreateProfile extends Fragment implements RadioGroup.OnCheckedChang
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View resultView = inflater.inflate(R.layout.frag_create_profile, container, false);
         editID = (EditText) resultView.findViewById(R.id.editID);
+        editID.setText(getRandomID());
         RadioGroup radioMin = (RadioGroup) resultView.findViewById(R.id.radioMinutes);
         radioMin.setOnCheckedChangeListener(this);
         return (resultView);
+    }
+
+    private String getRandomID() {
+        int n = new Random().nextInt(90000000) + 10000000;// generate 8-digit number, from 10000000 to 99999999
+        return String.valueOf(n);
     }
 
     @Override
