@@ -13,6 +13,8 @@ public class Patient implements Serializable {
     public int trackingInterval;
     public ArrayList<Behavior> totalBehaviors;
     public ArrayList<Behavior> trackingBehaviors;
+    public String accessToken;
+    public String refreshToken;
 
     public Patient() {
         totalBehaviors = new ArrayList<Behavior>();

@@ -15,7 +15,6 @@ public class SleepActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sleep);
-        Log.e(this.getClass().toString(), "TestActivity onCreate");
         TextView log = (TextView) findViewById(R.id.log);
         BarChart chart = (BarChart) findViewById(R.id.chart);
         // may raise bugs in case FinalizeOAuthTask is not completed

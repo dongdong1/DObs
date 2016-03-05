@@ -9,10 +9,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppThemeNoActionBar">
         <activity
             android:name=".Activities.MainActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,16 +28,17 @@
             android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".Activities.CollectActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppThemeNoActionBar" />
         <activity
             android:name=".Activities.EventActivity"
             android:label="Create an event"
             android:theme="@style/Theme.AppCompat" />
         <activity android:name=".Activities.ViewBehaviors" />
         <activity android:name=".Activities.ViewActivity" />
+        <activity android:name=".Activities.SleepActivity" />
         <activity
-            android:name=".Activities.SleepActivity"
-            android:label="Data fetched">
+            android:name=".Activities.OAuthActivity"
+            android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import com.example.dobs.Activities.MainActivity;
 import com.example.dobs.Classes.Patient;
 import com.example.dobs.R;
+import com.example.dobs.Tasks.InitializeOAuthTask;
 
 import java.util.Random;
 
@@ -57,6 +58,7 @@ public class CreateProfile extends Fragment implements RadioGroup.OnCheckedChang
                     MainActivity.patient.ID = editID.getText().toString();
                 }
                 MainActivity.patient.trackingInterval = trackingIntervals;
+                new InitializeOAuthTask(getActivity()).execute();
                 getFragmentManager().beginTransaction().replace(R.id.fragCreate, new ChooseBehaviors()).commit();
                 break;
             default:
