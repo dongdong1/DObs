@@ -70,7 +70,7 @@ public class FetchSleepTask extends AsyncTask<Void, Void, String> {
         try {
             SleepLog sleepLog = new SleepLog(resultResponse);
             dialog.dismiss();
-            new DrawChartTask(chart, sleepLog.getLabels(), sleepLog.getEntries()).execute();
+            new DrawSleepTask(chart, sleepLog.getLabels(), sleepLog.getEntries()).execute();
             textView.setText(sleepLog.getSleepSummary());
             Log.e(this.getClass().toString(), "Fetch Text Success!");
         } catch (Exception e) {

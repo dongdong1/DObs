@@ -14,12 +14,12 @@ import java.util.ArrayList;
 /**
  * Created by Dade on 03/03/2016.
  */
-public class DrawChartTask extends AsyncTask<Void, Void, Void> {
+public class DrawSleepTask extends AsyncTask<Void, Void, Void> {
     private BarChart chart;
     private ArrayList<String> labels;
     private ArrayList<BarEntry> entries;
 
-    public DrawChartTask(BarChart chart, ArrayList<String> labels, ArrayList<BarEntry> entries) {
+    public DrawSleepTask(BarChart chart, ArrayList<String> labels, ArrayList<BarEntry> entries) {
         this.chart = chart;
         this.labels = labels;
         this.entries = entries;

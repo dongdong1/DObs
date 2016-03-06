@@ -72,7 +72,7 @@ public class FetchMotionTask extends AsyncTask<Void, Void, String> {
     protected void onPostExecute(String sleepSummary) {
         try {
             dialog.dismiss();
-            new DrawChartTask(chart, sleepLog.getLabels(), sleepLog.getEntries()).execute();
+            new DrawSleepTask(chart, sleepLog.getLabels(), sleepLog.getEntries()).execute();
             textView.setText(sleepSummary);
             Log.e(this.getClass().toString(), "Fetch Text Success!");
         } catch (Exception e) {
