@@ -13,7 +13,6 @@ import com.example.dobs.Activities.CollectActivity;
 import com.example.dobs.Activities.MainActivity;
 import com.example.dobs.Activities.ProfileActivity;
 import com.example.dobs.Activities.ViewActivity;
-import com.example.dobs.Activities.ViewBehaviors;
 import com.example.dobs.Classes.DatabaseHelper;
 import com.example.dobs.R;
 
