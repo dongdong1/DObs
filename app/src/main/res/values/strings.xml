@@ -4,7 +4,7 @@
     <string name="Manage">Manage</string>
     <string name="Collect">Collect</string>
     <string name="View">VIew</string>
-    <string name="Analyze">Analyze</string>
+    <string name="Sync">Sync</string>
     <string name="ok">OK</string>
     <string name="ID">ID #</string>
     <string name="labelIDHint">Numeric or Alpha</string>

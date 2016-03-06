@@ -24,9 +24,14 @@
             android:layout_width="0dp"
             android:layout_height="150sp"
             android:layout_gravity="center_vertical"
-            android:layout_weight="35"
+            android:layout_weight="30"
             android:scaleType="fitCenter"
             android:src="@drawable/behavior" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="150sp"
+            android:layout_weight="5" />
 
     </LinearLayout>
 
@@ -54,9 +59,14 @@
             android:layout_width="0dp"
             android:layout_height="150sp"
             android:layout_gravity="center_vertical"
-            android:layout_weight="35"
+            android:layout_weight="30"
             android:scaleType="fitCenter"
             android:src="@drawable/event" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="150sp"
+            android:layout_weight="5" />
     </LinearLayout>
 
 </LinearLayout>

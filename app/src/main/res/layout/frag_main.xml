@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="20"
-        android:text="@string/Analyze"
+        android:text="@string/Sync"
         android:textSize="@dimen/activity_button_size" />
 
 </LinearLayout>

@@ -9,24 +9,28 @@
         android:id="@+id/newBehavior1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/addBehavior1" />
+        android:hint="@string/addBehavior1"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/newBehavior2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/addBehavior2" />
+        android:hint="@string/addBehavior2"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/newBehavior3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/addBehavior3" />
+        android:hint="@string/addBehavior3"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/newBehavior4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/addBehavior4" />
+        android:hint="@string/addBehavior4"
+        android:inputType="text" />
 
 </LinearLayout>

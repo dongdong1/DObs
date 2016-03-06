@@ -20,7 +20,7 @@ public class Patient implements Serializable {
         totalBehaviors = new ArrayList<Behavior>();
         trackingBehaviors = new ArrayList<Behavior>();
 
-        totalBehaviors.add(new Behavior("Sleeping in chair", R.color.blue));
+        totalBehaviors.add(new Behavior("Sleeping in chair", R.color.my_blue));
         totalBehaviors.add(new Behavior("Sleeping in bed", R.color.green));
         totalBehaviors.add(new Behavior("Awake & calm", R.color.yellow));
         totalBehaviors.add(new Behavior("Noisy", R.color.orange));

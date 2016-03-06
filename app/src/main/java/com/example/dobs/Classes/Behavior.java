@@ -14,7 +14,7 @@ public class Behavior implements Serializable {
 
     public Behavior(String name) { //Without specific color, it is set to be default
         this.name = name;
-        this.color = R.color.fuchsia;
+        this.color = R.color.default_behavior;
     }
 
     public Behavior(String name, int color) {

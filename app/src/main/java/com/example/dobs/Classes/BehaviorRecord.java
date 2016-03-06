@@ -40,7 +40,7 @@ public class BehaviorRecord implements Serializable {
         this.behavior.name = name;
         switch (name) {
             case "Sleeping in chair":
-                this.behavior.color = R.color.blue;
+                this.behavior.color = R.color.my_blue;
                 break;
             case "Sleeping in bed":
                 this.behavior.color = R.color.green;
@@ -61,7 +61,7 @@ public class BehaviorRecord implements Serializable {
                 this.behavior.color = R.color.red;
                 break;
             default:
-                this.behavior.color = R.color.fuchsia;
+                this.behavior.color = R.color.default_behavior;
                 break;
         }
     }
