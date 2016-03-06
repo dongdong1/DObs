@@ -18,7 +18,6 @@ public class FetchSleepTask extends AsyncTask<Void, Void, String> {
 
     private TextView textView;
     private BarChart chart;
-    private SleepLog sleepLog;
 
     public FetchSleepTask(TextView textView, BarChart chart) {
         this.textView = textView;
@@ -59,9 +58,7 @@ public class FetchSleepTask extends AsyncTask<Void, Void, String> {
             GetSleep.GetSleepResultSet getSleepResults = getSleepChoreo.execute(getSleepInputs);
             Log.i(this.getClass().toString(), "getSleepResults created");
             //-----------------------------------------------------------------------------------------------------------------------
-            String resultResponse = getSleepResults.get_Response();
-            sleepLog = new SleepLog(resultResponse);
-            return (sleepLog.getSleepSummary());
+            return (getSleepResults.get_Response());
         } catch (Exception e) {
             // if an exception occurred, log it
             Log.e(this.getClass().toString(), e.getMessage());
@@ -69,11 +66,12 @@ public class FetchSleepTask extends AsyncTask<Void, Void, String> {
         return null;
     }
 
-    protected void onPostExecute(String sleepSummary) {
+    protected void onPostExecute(String resultResponse) {
         try {
+            SleepLog sleepLog = new SleepLog(resultResponse);
             dialog.dismiss();
             new DrawChartTask(chart, sleepLog.getLabels(), sleepLog.getEntries()).execute();
-            textView.setText(sleepSummary);
+            textView.setText(sleepLog.getSleepSummary());
             Log.e(this.getClass().toString(), "Fetch Text Success!");
         } catch (Exception e) {
             // if an exception occurred, show an error message

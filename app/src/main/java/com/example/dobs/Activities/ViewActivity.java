@@ -10,6 +10,7 @@ import android.widget.DatePicker;
 
 import com.example.dobs.Classes.Patient;
 import com.example.dobs.R;
+import com.example.dobs.Tasks.RefreshTokenTask;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -26,6 +27,7 @@ public class ViewActivity extends AppCompatActivity {
         this.context = this;
         if (MainActivity.patient == null)//In this case, the user has already created a profile
             MainActivity.patient = readPatient();
+        new RefreshTokenTask(this).execute();
         dataPicker = (DatePicker) findViewById(R.id.datePicker);
 
         Button btnBehavior = (Button) findViewById(R.id.btnBehavior);
