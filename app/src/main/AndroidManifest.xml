@@ -12,7 +12,7 @@
         android:theme="@style/AppThemeNoActionBar">
         <activity
             android:name=".Activities.MainActivity"
-            android:theme="@style/AppThemeNoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

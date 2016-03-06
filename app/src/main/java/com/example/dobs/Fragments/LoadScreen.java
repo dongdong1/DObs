@@ -2,10 +2,12 @@ package com.example.dobs.Fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.example.dobs.R;
 
@@ -14,6 +16,9 @@ import com.example.dobs.R;
  */
 public class LoadScreen extends Fragment {
     private static final String TAG = "LoadScreen";
+    private ProgressBar progressBar;
+    private Handler handler;
+    private int progressStatus = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,17 +28,33 @@ public class LoadScreen extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View resultView = inflater.inflate(R.layout.frag_load_screen, container, false);
-        Button start = (Button) resultView.findViewById(R.id.Start);
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startMainFragment(v);
+        progressBar = (ProgressBar) resultView.findViewById(R.id.progressBar);
+        handler = new Handler();
+        new Thread(new Runnable() {
+            public void run() {
+                while (progressStatus < 100) {
+                    progressStatus += 1;
+                    // Update the progress bar and display the current value in the text view
+                    handler.post(new Runnable() {
+                        public void run() {
+                            progressBar.setProgress(progressStatus);
+                        }
+                    });
+                    try {
+                        // Sleep for 50 milliseconds
+                        Thread.sleep(50);
+                    } catch (InterruptedException e) {
+                        Log.e(this.getClass().toString(), e.getMessage());
+                    }
+                }
+                startMainFragment();
             }
-        });
-        return (resultView);
+        }).start();
+        return resultView;
     }
 
-    private void startMainFragment(View v) {
+
+    private void startMainFragment() {
         getFragmentManager().beginTransaction().replace(R.id.fragMain, new MainFragment()).commit();
     }
 }
