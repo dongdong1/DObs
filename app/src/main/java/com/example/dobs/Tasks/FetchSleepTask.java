@@ -33,7 +33,7 @@ public class FetchSleepTask extends AsyncTask<Void, Void, String> {
             dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             dialog.setMessage("Loading");
             dialog.setIndeterminate(true);
-            dialog.setCancelable(false);
+            //dialog.setCancelable(false);
             dialog.show();
         }
     }

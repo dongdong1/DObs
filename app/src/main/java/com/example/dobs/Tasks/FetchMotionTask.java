@@ -16,11 +16,10 @@ import com.temboo.core.TembooSession;
 /**
  * Created by Dade on 03/03/2016.
  */
-public class FetchMotionTask extends AsyncTask<Void, Void, Void> {
+public class FetchMotionTask extends AsyncTask<Void, Void, String> {
 
     private TextView textView;
     private BarChart chart;
-    private MotionLog motionLog;
 
     public FetchMotionTask(TextView textView, BarChart chart) {
         this.textView = textView;
@@ -36,13 +35,13 @@ public class FetchMotionTask extends AsyncTask<Void, Void, Void> {
             dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             dialog.setMessage("Loading");
             dialog.setIndeterminate(true);
-            dialog.setCancelable(false);
+            //dialog.setCancelable(false);
             dialog.show();
         }
     }
 
     @Override
-    protected Void doInBackground(Void... arg0) {
+    protected String doInBackground(Void... arg0) {
 
         try {
             // Instantiate the Choreo, using a previously instantiated TembooSession object, eg:
@@ -65,9 +64,7 @@ public class FetchMotionTask extends AsyncTask<Void, Void, Void> {
             GetIntradayTimeSeriesResultSet getIntradayTimeSeriesResults = getIntradayTimeSeriesChoreo.execute(getIntradayTimeSeriesInputs);
             Log.i(this.getClass().toString(), "getIntradayTimeSeriesResults created");
             //-----------------------------------------------------------------------------------------------------------------------
-            String resultResponse = getIntradayTimeSeriesResults.get_Response();
-            motionLog = new MotionLog(resultResponse);
-            return null;
+            return (getIntradayTimeSeriesResults.get_Response());
         } catch (Exception e) {
             // if an exception occurred, log it
             Log.e(this.getClass().toString(), e.getMessage());
@@ -75,8 +72,9 @@ public class FetchMotionTask extends AsyncTask<Void, Void, Void> {
         return null;
     }
 
-    protected void onPostExecute(Void resultResponse) {
+    protected void onPostExecute(String resultResponse) {
         try {
+            MotionLog motionLog = new MotionLog(resultResponse);
             dialog.dismiss();
             new DrawMotionTask(chart, motionLog.getLabels(), motionLog.getEntries()).execute();
             textView.setText("Motion data");
