@@ -6,9 +6,10 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.example.dobs.Activities.MainActivity;
-import com.example.dobs.Classes.SleepLog;
 import com.github.mikephil.charting.charts.BarChart;
-import com.temboo.Library.Fitbit.Sleep.GetSleep;
+import com.temboo.Library.Fitbit.Statistics.GetIntradayTimeSeries;
+import com.temboo.Library.Fitbit.Statistics.GetIntradayTimeSeries.GetIntradayTimeSeriesInputSet;
+import com.temboo.Library.Fitbit.Statistics.GetIntradayTimeSeries.GetIntradayTimeSeriesResultSet;
 import com.temboo.core.TembooSession;
 
 /**
@@ -18,7 +19,7 @@ public class FetchMotionTask extends AsyncTask<Void, Void, String> {
 
     private TextView textView;
     private BarChart chart;
-    private SleepLog sleepLog;
+    //private SleepLog sleepLog;
 
     public FetchMotionTask(TextView textView, BarChart chart) {
         this.textView = textView;
@@ -46,22 +47,27 @@ public class FetchMotionTask extends AsyncTask<Void, Void, String> {
             // Instantiate the Choreo, using a previously instantiated TembooSession object, eg:
             TembooSession session = new TembooSession("shengdade", "myFirstApp", "ArtiavNqi3yliseQZEAMX2QLTOGanVqF");
             //-----------------------------------------------------------------------------------------------------------------------
-            GetSleep getSleepChoreo = new GetSleep(session);
-            Log.i(this.getClass().toString(), "getSleepChoreo created");
+            GetIntradayTimeSeries getIntradayTimeSeriesChoreo = new GetIntradayTimeSeries(session);
+            Log.i(this.getClass().toString(), "getIntradayTimeSeriesChoreo created");
             // Get an InputSet object for the choreo
-            GetSleep.GetSleepInputSet getSleepInputs = getSleepChoreo.newInputSet();
-            Log.i(this.getClass().toString(), "getSleepInputs created");
+            GetIntradayTimeSeriesInputSet getIntradayTimeSeriesInputs = getIntradayTimeSeriesChoreo.newInputSet();
+            Log.i(this.getClass().toString(), "getIntradayTimeSeriesInputs created");
             // Set inputs
-            getSleepInputs.set_AccessToken(MainActivity.patient.accessToken);
-            getSleepInputs.set_Date(MainActivity.datePicked);
-            Log.i(this.getClass().toString(), "getSleepInputs set ready");
+            getIntradayTimeSeriesInputs.set_StartDate(MainActivity.datePicked);
+            Log.e(this.getClass().toString(), "MainActivity.datePicked: " + MainActivity.datePicked);
+            getIntradayTimeSeriesInputs.set_ResourcePath("activities/calories");
+            getIntradayTimeSeriesInputs.set_DetailLevel("15min");
+            getIntradayTimeSeriesInputs.set_AccessToken(MainActivity.patient.accessToken);
+            getIntradayTimeSeriesInputs.set_EndDate("1d");
+            Log.i(this.getClass().toString(), "getIntradayTimeSeriesInputs set ready");
             // Execute Choreo
-            GetSleep.GetSleepResultSet getSleepResults = getSleepChoreo.execute(getSleepInputs);
-            Log.i(this.getClass().toString(), "getSleepResults created");
+            GetIntradayTimeSeriesResultSet getIntradayTimeSeriesResults = getIntradayTimeSeriesChoreo.execute(getIntradayTimeSeriesInputs);
+            Log.i(this.getClass().toString(), "getIntradayTimeSeriesResults created");
             //-----------------------------------------------------------------------------------------------------------------------
-            String resultResponse = getSleepResults.get_Response();
-            sleepLog = new SleepLog(resultResponse);
-            return (sleepLog.getSleepSummary());
+            String resultResponse = getIntradayTimeSeriesResults.get_Response();
+//            sleepLog = new SleepLog(resultResponse);
+//            return (sleepLog.getSleepSummary());
+            return (resultResponse);
         } catch (Exception e) {
             // if an exception occurred, log it
             Log.e(this.getClass().toString(), e.getMessage());
@@ -69,11 +75,11 @@ public class FetchMotionTask extends AsyncTask<Void, Void, String> {
         return null;
     }
 
-    protected void onPostExecute(String sleepSummary) {
+    protected void onPostExecute(String resultResponse) {
         try {
             dialog.dismiss();
-            new DrawSleepTask(chart, sleepLog.getLabels(), sleepLog.getEntries()).execute();
-            textView.setText(sleepSummary);
+//            new DrawSleepTask(chart, sleepLog.getLabels(), sleepLog.getEntries()).execute();
+            textView.setText(resultResponse);
             Log.e(this.getClass().toString(), "Fetch Text Success!");
         } catch (Exception e) {
             // if an exception occurred, show an error message

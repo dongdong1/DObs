@@ -40,6 +40,15 @@ public class ViewActivity extends AppCompatActivity {
             }
         });
 
+        Button btnMotion = (Button) findViewById(R.id.btnMotion);
+        btnMotion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.datePicked = getPickedDateString();
+                startActivity(new Intent(context, MotionActivity.class));
+            }
+        });
+
         Button btnSleep = (Button) findViewById(R.id.btnSleep);
         btnSleep.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +64,11 @@ public class ViewActivity extends AppCompatActivity {
     }
 
     private String getPickedDateString() {
-        return (String.valueOf(dataPicker.getYear()) + "-" + String.valueOf(dataPicker.getMonth() + 1) + "-" + String.valueOf(dataPicker.getDayOfMonth()));
+        return (String.valueOf(dataPicker.getYear()) + "-" + checkDigit(dataPicker.getMonth() + 1) + "-" + checkDigit(dataPicker.getDayOfMonth()));
+    }
+
+    public String checkDigit(int number) {
+        return number <= 9 ? "0" + number : String.valueOf(number);
     }
 
     private Patient readPatient() {

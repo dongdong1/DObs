@@ -42,7 +42,7 @@ public class LoadScreen extends Fragment {
                     });
                     try {
                         // Sleep for 50 milliseconds
-                        Thread.sleep(50);
+                        Thread.sleep(20);
                     } catch (InterruptedException e) {
                         Log.e(this.getClass().toString(), e.getMessage());
                     }

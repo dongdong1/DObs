@@ -50,6 +50,9 @@
                     android:scheme="fitbittester" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activities.MotionActivity">
+
+        </activity>
     </application>
 
 </manifest>
