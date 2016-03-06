@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.example.dobs.Activities.MainActivity;
+import com.example.dobs.Classes.MotionLog;
 import com.github.mikephil.charting.charts.BarChart;
 import com.temboo.Library.Fitbit.Statistics.GetIntradayTimeSeries;
 import com.temboo.Library.Fitbit.Statistics.GetIntradayTimeSeries.GetIntradayTimeSeriesInputSet;
@@ -15,11 +16,11 @@ import com.temboo.core.TembooSession;
 /**
  * Created by Dade on 03/03/2016.
  */
-public class FetchMotionTask extends AsyncTask<Void, Void, String> {
+public class FetchMotionTask extends AsyncTask<Void, Void, Void> {
 
     private TextView textView;
     private BarChart chart;
-    //private SleepLog sleepLog;
+    private MotionLog motionLog;
 
     public FetchMotionTask(TextView textView, BarChart chart) {
         this.textView = textView;
@@ -41,7 +42,7 @@ public class FetchMotionTask extends AsyncTask<Void, Void, String> {
     }
 
     @Override
-    protected String doInBackground(Void... arg0) {
+    protected Void doInBackground(Void... arg0) {
 
         try {
             // Instantiate the Choreo, using a previously instantiated TembooSession object, eg:
@@ -56,7 +57,7 @@ public class FetchMotionTask extends AsyncTask<Void, Void, String> {
             getIntradayTimeSeriesInputs.set_StartDate(MainActivity.datePicked);
             Log.e(this.getClass().toString(), "MainActivity.datePicked: " + MainActivity.datePicked);
             getIntradayTimeSeriesInputs.set_ResourcePath("activities/calories");
-            getIntradayTimeSeriesInputs.set_DetailLevel("15min");
+            getIntradayTimeSeriesInputs.set_DetailLevel("1min");
             getIntradayTimeSeriesInputs.set_AccessToken(MainActivity.patient.accessToken);
             getIntradayTimeSeriesInputs.set_EndDate("1d");
             Log.i(this.getClass().toString(), "getIntradayTimeSeriesInputs set ready");
@@ -65,9 +66,8 @@ public class FetchMotionTask extends AsyncTask<Void, Void, String> {
             Log.i(this.getClass().toString(), "getIntradayTimeSeriesResults created");
             //-----------------------------------------------------------------------------------------------------------------------
             String resultResponse = getIntradayTimeSeriesResults.get_Response();
-//            sleepLog = new SleepLog(resultResponse);
-//            return (sleepLog.getSleepSummary());
-            return (resultResponse);
+            motionLog = new MotionLog(resultResponse);
+            return null;
         } catch (Exception e) {
             // if an exception occurred, log it
             Log.e(this.getClass().toString(), e.getMessage());
@@ -75,12 +75,12 @@ public class FetchMotionTask extends AsyncTask<Void, Void, String> {
         return null;
     }
 
-    protected void onPostExecute(String resultResponse) {
+    protected void onPostExecute(Void resultResponse) {
         try {
             dialog.dismiss();
-//            new DrawSleepTask(chart, sleepLog.getLabels(), sleepLog.getEntries()).execute();
-            textView.setText(resultResponse);
-            Log.e(this.getClass().toString(), "Fetch Text Success!");
+            new DrawMotionTask(chart, motionLog.getLabels(), motionLog.getEntries()).execute();
+            textView.setText("Motion data");
+            Log.e(this.getClass().toString(), "Fetch Motion Success!");
         } catch (Exception e) {
             // if an exception occurred, show an error message
             Log.i(this.getClass().toString(), e.getMessage());

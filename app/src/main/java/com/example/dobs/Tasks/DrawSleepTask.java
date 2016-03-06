@@ -40,14 +40,13 @@ public class DrawSleepTask extends AsyncTask<Void, Void, Void> {
             chart.getAxisRight().setTextColor(Color.WHITE);
             chart.getAxisLeft().setDrawLabels(false);
             chart.getAxisRight().setDrawLabels(false);
-            chart.getAxisRight().setTextColor(Color.WHITE);
             chart.getXAxis().setTextColor(Color.WHITE);
             chart.setDescription("");
             chart.getLegend().setEnabled(false);
             chart.setData(data);
             chart.animateY(2000);
             chart.invalidate();
-            Log.e(this.getClass().toString(), "Draw Chart Success!");
+            Log.e(this.getClass().toString(), "Draw Sleep Success!");
         } catch (Exception e) {
             // if an exception occurred, show an error message
             Log.e(this.getClass().toString(), e.getMessage());
