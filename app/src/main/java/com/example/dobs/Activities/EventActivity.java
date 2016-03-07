@@ -32,7 +32,8 @@ public class EventActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_okay:
-                Toast.makeText(this, "Why would you press me?", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "This button would store events later", Toast.LENGTH_SHORT).show();
+                finish();
                 break;
             default:
                 break;

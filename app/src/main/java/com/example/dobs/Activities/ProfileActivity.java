@@ -21,12 +21,13 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         if (savedInstanceState == null) {
-            File file = new File(getFilesDir(), MainActivity.patientFilename);
-            if (file.exists()) {
-                getFragmentManager().beginTransaction().add(R.id.fragCreate, new ChooseBehaviors()).commit();
-            } else {
-                getFragmentManager().beginTransaction().add(R.id.fragCreate, new CreateProfile()).commit();
-            }
+//            File file = new File(getFilesDir(), MainActivity.patientFilename);
+//            if (file.exists()) {
+//                getFragmentManager().beginTransaction().add(R.id.fragCreate, new ChooseBehaviors()).commit();
+//            } else {
+//                getFragmentManager().beginTransaction().add(R.id.fragCreate, new CreateProfile()).commit();
+//            }
+            getFragmentManager().beginTransaction().add(R.id.fragCreate, new CreateProfile()).commit();
         }
     }
 
